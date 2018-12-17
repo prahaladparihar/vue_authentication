@@ -3,6 +3,10 @@ import App from './App.vue'
 import firebase from 'firebase'
 
 import HelloWorld from './components/HelloWorld.vue'
+import Login from './components/Login.vue'
+
+Vue.component('HelloWorld', HelloWorld)
+Vue.component('login', Login)
 
 // Initialize Firebase
 var config = {
@@ -17,7 +21,6 @@ firebase.initializeApp(config);
 
 window.firebase = firebase;
 
-Vue.component('HelloWorld', HelloWorld)
 
 Vue.config.productionTip = false
 
