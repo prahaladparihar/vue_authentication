@@ -1,5 +1,8 @@
 <template>
   <div class="container col-sm-5">
+    <router-link to="/">Home</router-link>&nbsp; | &nbsp;
+    <router-link to="/login">Login</router-link>
+    <br>
     <input
       type="text"
       v-model="movie"

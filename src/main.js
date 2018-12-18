@@ -1,12 +1,39 @@
 import Vue from 'vue'
 import App from './App.vue'
 import firebase from 'firebase'
+import VueRouter from 'vue-router' //For router
+// import Routes from './routes.js'
+
 
 import HelloWorld from './components/HelloWorld.vue'
 import Login from './components/Login.vue'
+import Signup from './components/Signup.vue'
 
-Vue.component('HelloWorld', HelloWorld)
-Vue.component('login', Login)
+
+Vue.use(VueRouter);
+//router instenece
+const router = new VueRouter({
+    routes: [{
+            path: '/',
+            name: 'HelloWorld',
+            component: HelloWorld
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: Login
+
+        },
+        {
+            path: '/signup',
+            name: 'signup',
+            component: Signup
+        }
+    ],
+    mode: 'history'
+});
+
+
 
 // Initialize Firebase
 var config = {
@@ -25,5 +52,6 @@ window.firebase = firebase;
 Vue.config.productionTip = false
 
 new Vue({
+    router: router,
     render: h => h(App),
 }).$mount('#app')

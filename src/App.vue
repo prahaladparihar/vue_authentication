@@ -2,8 +2,7 @@
   <div id="app">
     <h3>Add Your Movie List with Vue</h3>
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld></HelloWorld>
-    <login></login>
+    <router-view></router-view>
   </div>
 </template>
 
