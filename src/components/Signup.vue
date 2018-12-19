@@ -4,10 +4,10 @@
       <input
         type="text"
         :class=" {error:$v.name.$error} "
-        v-model.trim="first_name"
-        @input="$v.first_name.$touch()"
+        v-model.trim="name"
+        @input="$v.name.$touch()"
         class="form-control"
-        placeholder="Enter First Name"
+        placeholder="Enter Name"
       >
       <!-- error message-->
       <div v-if="$v.name.$dirty">
