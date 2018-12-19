@@ -9,7 +9,6 @@
         class="form-control"
         placeholder="Enter Name"
       >
-      <!-- error message-->
       <div v-if="$v.name.$dirty">
         <span class="text-warning" v-if="!$v.name.required">*Name required</span>
       </div>
@@ -101,7 +100,8 @@ export default {
           .auth()
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(user => {
-            alert("Created:)");
+            // alert("Created:)");
+            this.$router.replace("/login");
           })
           .catch(e => {
             alert("opppsss" + e.message);

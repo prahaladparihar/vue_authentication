@@ -2,7 +2,7 @@
   <div class="container col-sm-5">
     <h3>Login</h3>
     <hr>
-    <form class="form" v-on:submit.prevent="onSubmit">
+    <form class="form" v-on:submit.prevent="onlogin">
       <input
         type="text"
         v-model="email"
@@ -63,13 +63,17 @@ export default {
     }
   },
   methods: {
-    onSubmit() {
+    onlogin() {
       if (!this.$v.$invalid) {
-        const user = {
-          email: this.email,
-          password: this.password
-        };
-        console.log(user);
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(this.email, this.password)
+          .then(user => {
+            this.$router.replace("/");
+          })
+          .catch(e => {
+            alert(e.message);
+          });
       }
     }
   }
