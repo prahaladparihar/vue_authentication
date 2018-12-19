@@ -18,12 +18,16 @@ const router = new VueRouter({
     routes: [{
             path: '/',
             name: 'HelloWorld',
-            component: HelloWorld
+            component: HelloWorld,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
             path: '/login',
             name: 'login',
-            component: Login
+            component: Login,
+
 
         },
         {
@@ -34,6 +38,12 @@ const router = new VueRouter({
     ],
     mode: 'history'
 });
+
+//Guards vue-router
+router.beforeEach((to, from, next) => {
+    let currentUser = firebase.auth().currentUser;
+    let requiresAuth = to.matched.some(record.meta.requiresAuth);
+})
 
 
 
