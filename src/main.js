@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import firebase from 'firebase'
+import Vuelidate from 'vuelidate'
 import VueRouter from 'vue-router' //For router
 // import Routes from './routes.js'
 
@@ -11,6 +12,7 @@ import Signup from './components/Signup.vue'
 
 
 Vue.use(VueRouter);
+Vue.use(Vuelidate);
 //router instenece
 const router = new VueRouter({
     routes: [{
@@ -53,5 +55,6 @@ Vue.config.productionTip = false
 
 new Vue({
     router: router,
+    validations: {},
     render: h => h(App),
 }).$mount('#app')
