@@ -2,6 +2,7 @@
   <div class="container col-sm-5">
     <router-link to="/">Home</router-link>&nbsp; | &nbsp;
     <router-link to="/login">Login</router-link>
+    <hr>
     <br>
     <input
       type="text"
@@ -36,7 +37,7 @@
 
 <script>
 export default {
-  name: "home",
+  name: "HelloWorld",
   data() {
     return {
       movie: null,

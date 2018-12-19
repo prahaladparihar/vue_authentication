@@ -3,10 +3,9 @@ import App from './App.vue'
 import firebase from 'firebase'
 import Vuelidate from 'vuelidate'
 import VueRouter from 'vue-router' //For router
-// import Routes from './routes.js'
 
 
-import Home from './components/Home.vue'
+import HelloWorld from './components/HelloWorld.vue'
 import Login from './components/Login.vue'
 import Signup from './components/Signup.vue'
 
@@ -17,21 +16,16 @@ Vue.use(Vuelidate);
 const router = new VueRouter({
     routes: [{
             path: '/',
-            name: 'home',
-            component: Home,
+            name: 'HelloWorld',
+            component: HelloWorld,
             meta: {
                 requiresAuth: true
             }
         },
         {
-            path: '*',
-            name: 'login',
-            component: Login
-        },
-        {
             path: '/login',
             name: 'login',
-            component: Login
+            component: Login,
         },
         {
             path: '/signup',
@@ -48,11 +42,11 @@ router.beforeEach((to, from, next) => {
     let requiresAuth = to.matched.some(record.meta.requiresAuth);
 
 
-    // check here !
+    //     // check here !
     if (requiresAuth && !currentUser) {
         next('login');
     } else if (!requiresAuth && currentUser) {
-        next('/');
+        next('');
     } else {
         next();
     }
