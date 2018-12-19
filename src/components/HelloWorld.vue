@@ -1,8 +1,7 @@
 <template>
   <div class="container col-sm-5">
-    <router-link to="/">Home</router-link>&nbsp; | &nbsp;
-    <router-link to="/login">Login</router-link>
-    <hr>
+    <router-link to="/">Home</router-link>
+    <button class="btn btn-danger float-right mb-3" @click="logout" title="Log Out">LogOut</button>
     <br>
     <input
       type="text"
@@ -15,10 +14,10 @@
       <ul class="my-4 list-group-flush bg-dark">
         <li v-for="(movieName,key) in movies" :key="key" class="list-group-item bg-warning">
           <span>{{movieName.name}}</span>
-          <button class="btn btn-primary float-right" v-on:click="showme=!showme" title="Edit">
+          <button class="btn btn-primary float-right bt" v-on:click="showme=!showme" title="Edit">
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </button>
-          <button class="btn btn-danger float-left" @click="deleteMovie(key)" title="Delete">
+          <button class="btn btn-danger float-left bt" @click="deleteMovie(key)" title="Delete">
             <i class="fa fa-trash-o" aria-hidden="true"></i>
           </button>
           <input
@@ -76,6 +75,18 @@ export default {
         .remove();
     }
   },
+  // logout method
+  logout() {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        this.$router.replace("/login");
+      })
+      .catch(e => {
+        alert(e.message);
+      });
+  },
   // getting values
   created() {
     firebase
@@ -98,7 +109,7 @@ ul {
 .showall {
   font-size: 30px;
 }
-button {
+.bt {
   border-radius: 50%;
 }
 </style>

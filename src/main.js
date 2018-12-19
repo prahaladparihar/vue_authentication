@@ -37,20 +37,20 @@ const router = new VueRouter({
 });
 
 //Guards vue-router
-router.beforeEach((to, from, next) => {
-    let currentUser = firebase.auth().currentUser;
-    let requiresAuth = to.matched.some(record.meta.requiresAuth);
+// router.beforeEach((to, from, next) => {
+//     let currentUser = firebase.auth().currentUser;
+//     let requiresAuth = to.matched.some(record.meta.requiresAuth);
 
 
-    //     // check here !
-    if (requiresAuth && !currentUser) {
-        next('login');
-    } else if (!requiresAuth && currentUser) {
-        next('');
-    } else {
-        next();
-    }
-});
+//   // check here !
+//     if (requiresAuth && !currentUser) {
+//         next('login');
+//     } else if (!requiresAuth && currentUser) {
+//         next('');
+//     } else {
+//         next();
+//     }
+// });
 
 
 
@@ -69,6 +69,10 @@ window.firebase = firebase;
 
 
 Vue.config.productionTip = false
+
+
+
+
 
 new Vue({
     router: router,
