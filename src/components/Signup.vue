@@ -97,13 +97,15 @@ export default {
   methods: {
     onSubmit() {
       if (!this.$v.$invalid) {
-        const user = {
-          email: this.email,
-          name: this.first_name,
-          password: this.password,
-          repeat_password: this.repeat_password
-        };
-        console.log(user);
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(this.email, this.password)
+          .then(user => {
+            alert("Created:)");
+          })
+          .catch(e => {
+            alert("opppsss" + e.message);
+          });
       }
     }
   }
