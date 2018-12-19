@@ -22,7 +22,6 @@
         class="form-control"
         placeholder="Enter Email"
       >
-      <!-- error message-->
       <div v-if="$v.email.$dirty">
         <span
           class="text-danger"
@@ -31,31 +30,27 @@
         <span class="text-warning" v-if="!$v.email.required">*Email required</span>
       </div>
       <br>
-
       <input
         type="password"
         :class=" {error:$v.password.$error} "
         v-model.trim="password"
         @input="$v.password.$touch()"
         class="form-control"
-        placeholder="Enter Password error"
+        placeholder="Enter Password"
       >
-      <!-- error message-->
       <div v-if="$v.password.$dirty">
         <span class="text-warning" v-if="!$v.password.required">*Password required</span>
         <span class="text-danger" v-if="!$v.password.minLength">Password must greater then 7</span>
       </div>
       <br>
-
       <input
         type="password"
         :class=" {error:$v.repeat_password.$error} "
         v-model.trim="repeat_password"
         @input="$v.repeat_password.$touch()"
         class="form-control"
-        placeholder="Enter Password error"
+        placeholder="Enter Password"
       >
-      <!-- error message-->
       <div v-if="$v.repeat_password.$dirty">
         <span class="text-danger" v-if="!$v.repeat_password.sameAsPassword">Password must be same</span>
         <span class="text-warning" v-if="!$v.repeat_password.required">*Password required</span>
@@ -117,7 +112,12 @@ export default {
 
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif+TC");
+
 button:disabled {
   cursor: not-allowed;
+}
+span {
+  font-family: "Noto Serif TC", serif;
 }
 </style>
