@@ -84,6 +84,7 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Noto+Serif+TC");
 hr {
   background: rgb(9, 255, 0);
+  color: aqua;
 }
 span {
   font-family: "Noto Serif TC", serif;
